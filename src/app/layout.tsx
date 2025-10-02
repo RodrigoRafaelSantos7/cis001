@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif, Inter } from "next/font/google";
+import {
+  Charm,
+  Geist,
+  Geist_Mono,
+  Instrument_Serif,
+  Inter,
+} from "next/font/google";
 
 import "./globals.css";
 
@@ -24,6 +30,12 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const charm = Charm({
+  variable: "--font-charm",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 export const metadata: Metadata = {
   title: "Coral Infantil de Setúbal",
   description: "Coral Infantil de Setúbal",
@@ -37,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="pt-PT">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${inter.variable} antialiased`}
+        className={`${geistSans.variable} ${charm.variable} ${geistMono.variable} ${instrumentSerif.variable} ${inter.variable} antialiased`}
       >
         {children}
       </body>
