@@ -19,13 +19,13 @@ const BentoGrid = () => {
         </div>
       </div>
 
-      <div className="flex items-start justify-center self-stretch">
+      <div className="flex items-start justify-center self-stretch bg-[#0D4A85]/10">
         <div className="relative w-4 self-stretch overflow-hidden sm:w-6 md:w-8 lg:w-12">
           <div className="absolute top-[-120px] left-[-40px] flex w-[120px] flex-col items-start justify-start sm:left-[-50px] sm:w-[140px] md:left-[-58px] md:w-[162px]" />
         </div>
 
         {/* Left - Smart. Simple. Brilliant. */}
-        <div className="grid flex-1 grid-cols-1 gap-0 border-[rgba(55,50,47,0.12)] border-r border-l md:grid-cols-2">
+        <div className="grid flex-1 grid-cols-1 gap-0 border-[rgba(55,50,47,0.12)] border-r border-l bg-[#F7F5F3] md:grid-cols-2">
           <div className="flex flex-col items-start justify-start gap-4 border-[rgba(55,50,47,0.12)] border-r-0 border-b p-4 sm:gap-6 sm:p-6 md:border-r md:p-8 lg:p-12">
             <div className="flex flex-col gap-2">
               <h3 className="font-sans font-semibold text-[#37322F] text-lg leading-tight sm:text-xl">

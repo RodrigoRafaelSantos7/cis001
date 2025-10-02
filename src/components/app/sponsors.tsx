@@ -2,10 +2,7 @@ import Image from "next/image";
 import { SponsorsIcon } from "../icons/sponsors";
 import { Badge } from "../ui/badge-component";
 
-const GRID_COLS_MOBILE = 2;
-const GRID_COLS_DESKTOP = 2;
-const DESKTOP_LAST_COL_INDEX = 1;
-const FIRST_ROW_THRESHOLD = 2;
+const GRID_COLS = 2;
 
 const Sponsors = () => {
   return (
@@ -23,27 +20,18 @@ const Sponsors = () => {
         </div>
       </div>
 
-      <div className="flex items-start justify-center self-stretch border-[rgba(55,50,47,0.12)] border-t border-b-0">
+      <div className="flex items-start justify-center self-stretch border-[rgba(55,50,47,0.12)] border-b-0 bg-[#0D4A85]/10">
         <div className="relative w-4 self-stretch overflow-hidden sm:w-6 md:w-8 lg:w-12" />
 
-        <div className="grid flex-1 grid-cols-2 gap-0 border-[rgba(55,50,47,0.12)] border-r border-l bg-[#F7F5F3] sm:grid-cols-4 md:grid-cols-4">
-          {/* Logo Grid - Responsive grid */}
+        <div className="grid flex-1 grid-cols-2 gap-0 border-[rgba(55,50,47,0.12)] border-r border-l bg-[#F7F5F3]">
+          {/* Logo Grid - 2x2 grid */}
           {Array.from({ length: 4 }).map((_, index) => {
-            const isMobileFirstColumn = index % GRID_COLS_MOBILE === 0;
-            const isDesktopFirstColumn = index % GRID_COLS_DESKTOP === 0;
-            const isDesktopLastColumn =
-              index % GRID_COLS_DESKTOP === DESKTOP_LAST_COL_INDEX;
-            const isDesktopTopRow = index < GRID_COLS_DESKTOP;
-            const isDesktopBottomRow = index >= GRID_COLS_DESKTOP;
+            const isLeftColumn = index % GRID_COLS === 0;
+            const isTopRow = index < GRID_COLS;
 
             return (
               <div
-                className={`flex h-24 xs:h-28 items-center justify-center gap-1 xs:gap-2 border-[rgba(227,226,225,0.5)] border-b sm:h-32 sm:gap-3 md:h-36 lg:h-40 ${index < FIRST_ROW_THRESHOLD ? "sm:border-b-[0.5px]" : "sm:border-b"}
-                            ${index >= FIRST_ROW_THRESHOLD ? "border-b" : ""}
-                            ${isMobileFirstColumn ? "border-r-[0.5px]" : ""}sm:border-r-[0.5px] sm:border-l-0 ${isDesktopFirstColumn ? "md:border-l" : "md:border-l-[0.5px]"}
-                            ${isDesktopLastColumn ? "md:border-r" : "md:border-r-[0.5px]"}
-                            ${isDesktopTopRow ? "md:border-b-[0.5px]" : ""}
-                            ${isDesktopBottomRow ? "md:border-t-[0.5px] md:border-b" : ""}border-[#E3E2E1]`}
+                className={`flex h-24 items-center justify-center border-[#E3E2E1] sm:h-32 md:h-36 lg:h-40 ${isLeftColumn ? "border-r-[0.5px]" : "border-l-[0.5px]"} ${isTopRow ? "border-b-[0.5px]" : "border-t-[0.5px] border-b"}`}
                 // biome-ignore lint/suspicious/noArrayIndexKey: reason
                 key={index}
               >
