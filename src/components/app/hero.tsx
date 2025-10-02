@@ -55,16 +55,14 @@ const Hero = () => {
   };
   return (
     <>
-      <div className="flex w-full max-w-[937px] flex-col items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:w-[937px] lg:gap-6">
+      <div className="flex w-full max-w-[937px] flex-col items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
         <div className="flex flex-col items-center justify-center gap-4 self-stretch rounded-[3px] sm:gap-5 md:gap-6 lg:gap-8">
-          <div className="flex w-full max-w-[748.71px] flex-col justify-center px-2 text-center font-charm font-normal text-[#0D4A85] text-[24px] xs:text-[28px] leading-[1.1] sm:px-4 sm:text-[36px] sm:leading-[1.15] md:px-0 md:text-[52px] md:leading-[1.2] lg:w-[748.71px] lg:text-[80px] lg:leading-24">
-            Coral Infantil
-            <br />
-            de Setúbal
+          <div className="flex w-full max-w-[748.71px] flex-col justify-center px-2 text-center font-charm font-normal text-[#0D4A85] text-[24px] xs:text-[28px] leading-[1.1] sm:px-4 sm:text-[36px] sm:leading-[1.15] md:px-0 md:text-[52px] md:leading-[1.2] lg:text-[80px] lg:leading-24">
+            Coral Infantil de Setúbal
           </div>
           <div className="flex w-full max-w-[520.08px] flex-col justify-center px-2 text-center font-medium font-sans text-[rgba(55,50,47,0.80)] text-sm leading-[1.4] sm:px-4 sm:text-lg sm:leading-[1.45] md:px-0 md:text-xl md:leading-[1.5] lg:text-lg lg:leading-7">
-            Gostas de cantar?Tens entre 6 e 16 anos?
-            <br className="hidden sm:block" />
+            Gostas de cantar? Tens entre 6 e 16 anos?
+            <br className="block" />
             Então estás à espera do quê para pertenceres a esta família?
           </div>
         </div>
@@ -81,14 +79,14 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="-translate-x-1/2 pointer-events-none absolute top-[232px] left-1/2 z-0 transform sm:top-[248px] md:top-[264px] lg:top-[320px]">
+      <div className="-translate-x-1/2 pointer-events-none absolute top-[200px] left-1/2 z-0 transform sm:top-[220px] md:top-[240px] lg:top-[280px]">
         <Image
           alt=""
           className="h-auto w-[936px] opacity-30 mix-blend-multiply sm:w-[1404px] sm:opacity-40 md:w-[2106px] md:opacity-50 lg:w-[2808px]"
           height={320}
           src="/mask-group-pattern.svg"
           style={{
-            filter: "hue-rotate(15deg) saturate(0.7) brightness(1.2)",
+            filter: "hue-rotate(200deg) saturate(0.9) brightness(1.1)",
           }}
           width={2808}
         />
@@ -160,18 +158,18 @@ const Hero = () => {
         <div className="flex flex-1 flex-col items-stretch justify-center gap-0 px-0 sm:px-2 md:flex-row md:px-0">
           {/* Feature Cards */}
           <FeatureCard
-            description="Streamline customer subscriptions and billing with automated scheduling tools."
+            description="O Coral Infantil de Setúbal foi fundado em 1979, conta com mais de 50 coralistas com idade compreendida entre os 6 e os 16 anos."
             isActive={activeCard === 0}
             onClick={() => handleCardClick(0)}
             progress={activeCard === 0 ? progress : 0}
-            title="Plan your schedules"
+            title="Coral Infantil"
           />
           <FeatureCard
-            description="Transform your business data into actionable insights with real-time analytics."
+            description="O Coro Feminino TuttiEncantus é constituído por ex-coralistas do Coral Infantil de Setúbal."
             isActive={activeCard === 1}
             onClick={() => handleCardClick(1)}
             progress={activeCard === 1 ? progress : 0}
-            title="Analytics & insights"
+            title="Tuti Encantos"
           />
         </div>
 
@@ -184,7 +182,7 @@ const Hero = () => {
               height={320}
               src="/mask-group-pattern.svg"
               style={{
-                filter: "hue-rotate(200deg) saturate(0.9) brightness(1.1)",
+                filter: "hue-rotate(320deg) saturate(1.2) brightness(1.0)",
                 maskImage:
                   "linear-gradient(to left, transparent 0%, black 40%, black 60%, transparent 100%)",
                 WebkitMaskImage:

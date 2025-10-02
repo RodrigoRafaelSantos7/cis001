@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 type FeatureCardProps = {
   title: string;
   description: string;
@@ -42,8 +44,22 @@ const FeatureCard = ({
       </div>
     )}
 
-    <div className="flex flex-col justify-center self-stretch font-sans font-semibold text-[#49423D] text-sm leading-6 md:text-sm md:leading-6">
-      {title}
+    <div className="flex h-full flex-col items-center justify-center self-stretch font-semibold text-sm leading-6 md:text-sm md:leading-6">
+      {title === "Coral Infantil" ? (
+        <Image
+          alt="Coral Infantil"
+          height={150}
+          src="/cis-logo.png"
+          width={150}
+        />
+      ) : (
+        <Image
+          alt="Tuti Encantus"
+          height={150}
+          src="/tutti-encantus-logo.png"
+          width={200}
+        />
+      )}
     </div>
     <div className="self-stretch font-normal font-sans text-[#605A57] text-[13px] leading-[22px] md:text-[13px] md:leading-[22px]">
       {description}
