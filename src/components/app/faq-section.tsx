@@ -53,7 +53,7 @@ const FAQSection = () => {
   return (
     <div className="flex w-full items-start justify-center">
       <div className="flex flex-1 flex-col items-start justify-start gap-6 px-4 py-16 md:px-12 md:py-20 lg:flex-row lg:gap-12">
-        {/* Left Column - Header */}
+        {/* Left Column */}
         <div className="flex w-full flex-col items-start justify-center gap-4 lg:flex-1 lg:py-5">
           <div className="flex w-full flex-col justify-center font-sans font-semibold text-4xl text-[#49423D] leading-tight tracking-tight md:leading-[44px]">
             Perguntas Frequentes
@@ -65,7 +65,7 @@ const FAQSection = () => {
           </div>
         </div>
 
-        {/* Right Column - FAQ Items */}
+        {/* Right Column*/}
         <div className="flex w-full flex-col items-center justify-center lg:flex-1">
           <div className="flex w-full flex-col">
             {faqData.map((item, index) => {
