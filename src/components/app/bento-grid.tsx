@@ -1,5 +1,5 @@
-import SmartSimpleBrilliant from "../ui/smar-simple-brilliant";
-import NumbersThatSpeak from "./numbers-that-speak";
+import NumbersThatSpeak from "../ui/numbers-that-speak";
+import SmartSimpleBrilliant from "../ui/smart-simple-brilliant";
 
 const BentoGrid = () => {
   return (
@@ -75,13 +75,6 @@ const BentoGrid = () => {
 
               {/* Gradient mask for soft bottom edge */}
               <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-8 bg-gradient-to-t from-[#F7F5F3] to-transparent" />
-              {/* Fallback content if component doesn't render */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-20">
-                <div className="flex flex-col items-center gap-2 p-4">
-                  <div className="h-full w-3/4 rounded-full bg-green-500" />
-                </div>
-                <div className="text-green-600 text-sm">Growth Rate</div>
-              </div>
             </div>
           </div>
         </div>
