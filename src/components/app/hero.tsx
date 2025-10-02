@@ -87,7 +87,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="-translate-x-1/2 pointer-events-none absolute top-[20px] left-1/2 z-0 h-[400px] w-[100vw] max-w-[1400px] transform sm:top-[220px] sm:h-[500px] md:top-[240px] md:h-[600px] lg:top-[260px] lg:h-[700px]">
+      <div className="-translate-x-1/2 pointer-events-none absolute top-[175px] left-1/2 z-0 h-[400px] w-[100vw] max-w-[1400px] transform sm:top-[220px] sm:h-[500px] md:top-[240px] md:h-[600px] lg:top-[260px] lg:h-[700px]">
         <div
           className="h-full w-full opacity-50 mix-blend-multiply transition-all duration-500 sm:opacity-60 md:opacity-70"
           style={{
