@@ -53,7 +53,7 @@ const BentoGrid = () => {
           </div>
 
           {/* Right - Financial information */}
-          <div className="flex flex-col items-start justify-start gap-4 p-4 sm:gap-6 sm:p-6 md:p-8 lg:p-12">
+          <div className="flex flex-col items-start justify-start gap-4 border-[rgba(55,50,47,0.12)] border-b p-4 sm:gap-6 sm:p-6 md:border-b-0 md:p-8 lg:p-12">
             <div className="flex flex-col gap-2">
               <h3 className="font-sans font-semibold text-[#37322F] text-lg leading-tight sm:text-xl">
                 Transparência total
@@ -64,9 +64,9 @@ const BentoGrid = () => {
               </p>
             </div>
             <div className="relative flex h-[200px] w-full items-center justify-center overflow-hidden rounded-lg sm:h-[250px] md:h-[300px]">
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 mb-10 flex items-center justify-center">
                 <NumbersThatSpeak
-                  className="h-full w-full object-contain"
+                  className="scale-50 sm:scale-65 md:scale-75 lg:scale-90"
                   height="100%"
                   theme="light"
                   width="100%"
@@ -75,6 +75,12 @@ const BentoGrid = () => {
 
               {/* Gradient mask for soft bottom edge */}
               <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-8 bg-gradient-to-t from-[#F7F5F3] to-transparent" />
+            </div>
+
+            <div className="relative flex h-10 w-full items-center justify-center overflow-hidden rounded-full bg-[#0D4A85] px-6 py-2 shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] sm:h-11 sm:px-8 sm:py-[6px] md:h-12 md:px-10 lg:px-12">
+              <div className="flex items-center justify-center font-medium font-sans text-sm text-white leading-5 sm:text-base md:text-[15px]">
+                Ver informação administrativa
+              </div>
             </div>
           </div>
         </div>

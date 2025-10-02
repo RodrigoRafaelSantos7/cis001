@@ -42,9 +42,6 @@ const NumbersThatSpeak: React.FC<NumbersThatSpeakProps> = ({
           "--nts-shadow": "rgba(47,48,55,0.06)",
         } as React.CSSProperties);
 
-  // Figma-exported assets
-  const imgSchedule = "/placeholder.svg?height=271&width=431";
-
   return (
     <div
       aria-label="Financial dashboard showing invoiced revenue charts"
@@ -95,10 +92,6 @@ const NumbersThatSpeak: React.FC<NumbersThatSpeakProps> = ({
                 borderRadius: "4.696px",
                 boxShadow:
                   "0px 0px 0px 0.587px rgba(47,48,55,0.12), 0px 1.174px 2.348px -0.587px rgba(47,48,55,0.06), 0px 1.761px 3.522px -0.88px rgba(47,48,55,0.06)",
-                maskImage: `url('${imgSchedule}')`,
-                maskPosition: "-81.766px -1.312px",
-                maskSize: "430.746px 270.521px",
-                maskRepeat: "no-repeat",
                 overflow: "hidden",
                 position: "relative",
                 display: "flex",
@@ -134,10 +127,6 @@ const NumbersThatSpeak: React.FC<NumbersThatSpeakProps> = ({
                 borderRadius: "5.739px",
                 boxShadow:
                   "0px 0px 0px 0.717px rgba(47,48,55,0.12), 0px 1.435px 2.87px -0.717px rgba(47,48,55,0.06), 0px 2.152px 4.304px -1.076px rgba(47,48,55,0.06)",
-                maskImage: `url('${imgSchedule}')`,
-                maskPosition: "-51.766px -11.138px",
-                maskSize: "430.746px 270.521px",
-                maskRepeat: "no-repeat",
                 overflow: "hidden",
                 position: "relative",
                 display: "flex",
@@ -173,10 +162,6 @@ const NumbersThatSpeak: React.FC<NumbersThatSpeakProps> = ({
                 borderRadius: "6.261px",
                 boxShadow:
                   "0px 0px 0px 0.783px rgba(47,48,55,0.12), 0px 1.565px 3.13px -0.783px rgba(47,48,55,0.06), 0px 2.348px 4.696px -1.174px rgba(47,48,55,0.06)",
-                maskImage: `url('${imgSchedule}')`,
-                maskPosition: "-36.766px -21.051px",
-                maskSize: "430.746px 270.521px",
-                maskRepeat: "no-repeat",
                 overflow: "hidden",
                 position: "relative",
                 display: "flex",
@@ -256,7 +241,7 @@ const NumbersThatSpeak: React.FC<NumbersThatSpeakProps> = ({
                               whiteSpace: "pre",
                             }}
                           >
-                            Invoiced Revenue
+                            Relatório de anual
                           </div>
                           <div
                             className="tracking-widest"
@@ -270,7 +255,7 @@ const NumbersThatSpeak: React.FC<NumbersThatSpeakProps> = ({
                               whiteSpace: "pre",
                             }}
                           >
-                            $317,731.00
+                            Informação financeira
                           </div>
                         </div>
                       </div>
@@ -338,7 +323,7 @@ const NumbersThatSpeak: React.FC<NumbersThatSpeakProps> = ({
                                     boxSizing: "border-box",
                                   }}
                                 >
-                                  {["500k", "300k", "200k", "100k", "0"].map(
+                                  {["300", "200", "150", "100", "0"].map(
                                     (label, index) => (
                                       <div
                                         // biome-ignore lint/suspicious/noArrayIndexKey: reason
@@ -517,10 +502,10 @@ const NumbersThatSpeak: React.FC<NumbersThatSpeakProps> = ({
                                   }}
                                 >
                                   <div style={{ whiteSpace: "pre" }}>
-                                    Aug 2023
+                                    Jan 2024
                                   </div>
                                   <div style={{ whiteSpace: "pre" }}>
-                                    Aug 2024
+                                    Dez 2024
                                   </div>
                                 </div>
                               </div>
@@ -557,17 +542,18 @@ const NumbersThatSpeak: React.FC<NumbersThatSpeakProps> = ({
                               }}
                             >
                               {[
-                                { height: "83px", color: "#5D4E37" },
-                                { height: "108px", color: "#5D4E37" },
-                                { height: "58px", color: "#5D4E37" },
-                                { height: "89px", color: "#5D4E37" },
-                                { height: "83px", color: "#5D4E37" },
-                                { height: "89px", color: "#5D4E37" },
-                                { height: "83px", color: "#5D4E37" },
-                                { height: "95px", color: "#5D4E37" },
-                                { height: "108px", color: "#5D4E37" },
-                                { height: "76px", color: "#5D4E37" },
-                                { height: "89px", color: "#5D4E37" },
+                                { height: "83px", color: "#0D4A85" },
+                                { height: "108px", color: "#E01582" },
+                                { height: "58px", color: "#0D4A85" },
+                                { height: "89px", color: "#E01582" },
+                                { height: "83px", color: "#0D4A85" },
+                                { height: "89px", color: "#E01582" },
+                                { height: "83px", color: "#0D4A85" },
+                                { height: "95px", color: "#E01582" },
+                                { height: "108px", color: "#0D4A85" },
+                                { height: "76px", color: "#E01582" },
+                                { height: "89px", color: "#0D4A85" },
+                                { height: "95px", color: "#E01582" },
                               ].map((item, index) => (
                                 <div
                                   // biome-ignore lint/suspicious/noArrayIndexKey: reason
