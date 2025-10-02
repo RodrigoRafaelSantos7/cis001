@@ -78,15 +78,7 @@ const Hero = () => {
 
       <div className="relative z-10 mt-6 flex w-full max-w-[497px] flex-col items-center justify-center gap-6 sm:mt-8 sm:gap-8 md:mt-10 md:gap-10 lg:mt-12 lg:w-[497px] lg:gap-12">
         <div className="flex items-center justify-start gap-4 backdrop-blur-[8.25px]">
-          <div
-            className={cn(
-              "relative flex h-10 items-center justify-center overflow-hidden rounded-full bg-[#0D4A85] px-6 py-2 shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] sm:h-11 sm:px-8 sm:py-[6px] md:h-12 md:px-10 lg:px-12",
-              {
-                "bg-[#0D4A85]": activeCard === 0,
-                "bg-[#E01582]": activeCard === 1,
-              }
-            )}
-          >
+          <div className="relative flex h-10 items-center justify-center overflow-hidden rounded-full bg-[#0D4A85] px-6 py-2 shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] sm:h-11 sm:px-8 sm:py-[6px] md:h-12 md:px-10 lg:px-12">
             <div className="flex items-center justify-center font-medium font-sans text-sm text-white leading-5 sm:text-base md:text-[15px]">
               Estamos à tua espera
               <MusicIcon className="ml-2 size-5" />
@@ -95,20 +87,14 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="-translate-x-1/2 pointer-events-none absolute top-[20px] left-1/2 z-0 transform sm:top-[220px] md:top-[240px] lg:top-[260px]">
-        <Image
-          alt=""
-          className="h-auto w-[936px] opacity-30 mix-blend-multiply sm:w-[1404px] sm:opacity-40 md:w-[2106px] md:opacity-50 lg:w-[2808px]"
-          height={320}
-          src="/mask-group-pattern.svg"
+      <div className="-translate-x-1/2 pointer-events-none absolute top-[20px] left-1/2 z-0 h-[400px] w-[100vw] max-w-[1400px] transform sm:top-[220px] sm:h-[500px] md:top-[240px] md:h-[600px] lg:top-[260px] lg:h-[700px]">
+        <div
+          className="h-full w-full opacity-30 mix-blend-multiply sm:opacity-40 md:opacity-50"
           style={{
-            filter: "hue-rotate(200deg) saturate(0.9) brightness(1.1)",
-            maskImage:
-              "radial-gradient(ellipse 100% 80% at 50% 50%, black 30%, transparent 70%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 100% 80% at 50% 50%, black 30%, transparent 70%)",
+            background:
+              "radial-gradient(ellipse 70% 50% at 50% 40%, rgba(45, 150, 200, 0.4) 0%, rgba(60, 180, 220, 0.3) 20%, rgba(80, 200, 240, 0.2) 40%, transparent 70%)",
+            filter: "blur(60px) saturate(0.9) brightness(1.1)",
           }}
-          width={2808}
         />
       </div>
 
