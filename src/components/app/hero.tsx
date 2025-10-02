@@ -33,10 +33,12 @@ const Hero = () => (
       <Image
         alt=""
         className="h-auto w-[936px] opacity-30 mix-blend-multiply sm:w-[1404px] sm:opacity-40 md:w-[2106px] md:opacity-50 lg:w-[2808px]"
+        height={320}
         src="/mask-group-pattern.svg"
         style={{
           filter: "hue-rotate(15deg) saturate(0.7) brightness(1.2)",
         }}
+        width={2808}
       />
     </div>
   </>
