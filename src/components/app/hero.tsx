@@ -6,13 +6,118 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { FeatureCard } from "../ui/feature-card";
 
+// Animation constants
 const MAX_PROGRESS = 100;
-const FEATURE_CARDS = 2;
-const PROGRESS_INTERVAL = 100;
+const PROGRESS_INTERVAL = 100; // 100ms = 10 seconds total cycle
+
+// Spacing constants
+const SPACING = {
+  SMALL: "gap-3 sm:gap-4 md:gap-5 lg:gap-6",
+  MEDIUM: "gap-4 sm:gap-5 md:gap-6 lg:gap-8",
+  LARGE: "gap-6 sm:gap-8 md:gap-10 lg:gap-12",
+  SECTION: "my-8 sm:my-12 md:my-16 lg:my-16",
+} as const;
+
+// Color themes for each feature card
+const CARD_THEMES = {
+  primary: {
+    gradient:
+      "radial-gradient(ellipse 70% 50% at 50% 40%, rgba(13, 74, 133, 0.7) 0%, rgba(25, 90, 150, 0.5) 20%, rgba(45, 120, 180, 0.3) 40%, transparent 70%)",
+    background: "bg-gradient-to-t from-[#0D4A85]/50 to-[#F7F5F3]",
+    name: "Coral Infantil",
+  },
+  secondary: {
+    gradient:
+      "radial-gradient(ellipse 70% 50% at 50% 40%, rgba(224, 21, 130, 0.7) 0%, rgba(230, 60, 150, 0.5) 20%, rgba(240, 100, 180, 0.3) 40%, transparent 70%)",
+    background: "bg-gradient-to-t from-[#E01582]/50 to-[#F7F5F3]",
+    name: "Tuti Encantos",
+  },
+} as const;
+
+// Feature cards data
+const FEATURE_CARDS_DATA = [
+  {
+    id: 0,
+    title: "Coral Infantil",
+    description:
+      "O Coral Infantil de Setúbal foi fundado em 1979, conta com mais de 50 coralistas com idade compreendida entre os 6 e os 16 anos.",
+    image: {
+      src: "https://cdn.coralinfantilsetubal.com/157.JPG",
+      alt: "Aniversário de 45 anos do Coral Infantil de Setúbal",
+    },
+    theme: CARD_THEMES.primary,
+  },
+  {
+    id: 1,
+    title: "Tuti Encantos",
+    description:
+      "O Coro Feminino TuttiEncantus é constituído por ex-coralistas do Coral Infantil de Setúbal.",
+    image: {
+      src: "https://cdn.coralinfantilsetubal.com/119.JPG",
+      alt: "Tuti Encantos",
+    },
+    theme: CARD_THEMES.secondary,
+  },
+] as const;
+
+const FEATURE_CARDS_COUNT = FEATURE_CARDS_DATA.length;
+
+// Helper components
+const HeroImage = ({
+  alt,
+  src,
+  className = "",
+}: {
+  alt: string;
+  src: string;
+  className?: string;
+}) => (
+  <Image
+    alt={alt}
+    className={cn("h-full w-full object-cover", className)}
+    height={695.55}
+    src={src}
+    width={960}
+  />
+);
+
+const BackgroundGradient = ({ activeCard }: { activeCard: number }) => {
+  const currentCard = FEATURE_CARDS_DATA[activeCard];
+  return (
+    <div
+      className="h-full w-full opacity-50 mix-blend-multiply transition-all duration-500 sm:opacity-60 md:opacity-70"
+      style={{
+        background: currentCard.theme.gradient,
+        filter: "blur(60px) saturate(1.2) brightness(1.0)",
+      }}
+    />
+  );
+};
+
+const ImageCarousel = ({ activeCard }: { activeCard: number }) => (
+  <div className="relative h-full w-full overflow-hidden">
+    {FEATURE_CARDS_DATA.map((card) => (
+      <div
+        className={cn(
+          "absolute inset-0 transition-all duration-500 ease-in-out",
+          activeCard === card.id
+            ? "scale-100 opacity-100 blur-0"
+            : "scale-95 opacity-0 blur-sm"
+        )}
+        key={card.id}
+      >
+        <HeroImage alt={card.image.alt} src={card.image.src} />
+      </div>
+    ))}
+  </div>
+);
 
 const Hero = () => {
+  // State management
   const [activeCard, setActiveCard] = useState(0);
   const [progress, setProgress] = useState(0);
+
+  // Refs for cleanup and progress tracking
   const mountedRef = useRef(true);
   const progressRef = useRef(0);
 
@@ -22,11 +127,11 @@ const Hero = () => {
         return;
       }
 
-      progressRef.current += 1; // 1% every 100ms = 10 seconds total
+      progressRef.current += 1;
 
       if (progressRef.current >= MAX_PROGRESS) {
         progressRef.current = 0;
-        setActiveCard((current) => (current + 1) % FEATURE_CARDS);
+        setActiveCard((current) => (current + 1) % FEATURE_CARDS_COUNT);
       }
 
       setProgress(progressRef.current);
@@ -38,13 +143,7 @@ const Hero = () => {
     };
   }, []);
 
-  useEffect(
-    () => () => {
-      mountedRef.current = false;
-    },
-    []
-  );
-
+  // Event handlers
   const handleCardClick = (index: number) => {
     if (!mountedRef.current) {
       return;
@@ -54,10 +153,25 @@ const Hero = () => {
     progressRef.current = 0;
     setProgress(0);
   };
+
+  // Computed values
+  const currentCard = FEATURE_CARDS_DATA[activeCard];
+
   return (
     <>
-      <div className="flex w-full max-w-[937px] flex-col items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-        <div className="flex flex-col items-center justify-center gap-4 self-stretch rounded-[3px] sm:gap-5 md:gap-6 lg:gap-8">
+      {/* Header Section */}
+      <div
+        className={cn(
+          "flex w-full max-w-[937px] flex-col items-center justify-center",
+          SPACING.SMALL
+        )}
+      >
+        <div
+          className={cn(
+            "flex flex-col items-center justify-center self-stretch rounded-[3px]",
+            SPACING.MEDIUM
+          )}
+        >
           <Image
             alt="Coral Infantil de Setúbal"
             className=""
@@ -76,7 +190,13 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative z-10 mt-6 flex w-full max-w-[497px] flex-col items-center justify-center gap-6 sm:mt-8 sm:gap-8 md:mt-10 md:gap-10 lg:mt-12 lg:w-[497px] lg:gap-12">
+      {/* Call to Action Section */}
+      <div
+        className={cn(
+          "relative z-10 mt-6 flex w-full max-w-[497px] flex-col items-center justify-center sm:mt-8 md:mt-10 lg:mt-12 lg:w-[497px]",
+          SPACING.LARGE
+        )}
+      >
         <div className="flex items-center justify-start gap-4 backdrop-blur-[8.25px]">
           <div className="relative flex h-10 items-center justify-center overflow-hidden rounded-full bg-[#0D4A85] px-6 py-2 shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] sm:h-11 sm:px-8 sm:py-[6px] md:h-12 md:px-10 lg:px-12">
             <div className="flex items-center justify-center font-medium font-sans text-sm text-white leading-5 sm:text-base md:text-[15px]">
@@ -87,88 +207,47 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Background Gradient */}
       <div className="-translate-x-1/2 pointer-events-none absolute top-[175px] left-1/2 z-0 h-[400px] w-[100vw] max-w-[1400px] transform sm:top-[220px] sm:h-[500px] md:top-[240px] md:h-[600px] lg:top-[260px] lg:h-[700px]">
-        <div
-          className="h-full w-full opacity-50 mix-blend-multiply transition-all duration-500 sm:opacity-60 md:opacity-70"
-          style={{
-            background:
-              activeCard === 0
-                ? "radial-gradient(ellipse 70% 50% at 50% 40%, rgba(13, 74, 133, 0.7) 0%, rgba(25, 90, 150, 0.5) 20%, rgba(45, 120, 180, 0.3) 40%, transparent 70%)"
-                : "radial-gradient(ellipse 70% 50% at 50% 40%, rgba(224, 21, 130, 0.7) 0%, rgba(230, 60, 150, 0.5) 20%, rgba(240, 100, 180, 0.3) 40%, transparent 70%)",
-            filter: "blur(60px) saturate(1.2) brightness(1.0)",
-          }}
-        />
+        <BackgroundGradient activeCard={activeCard} />
       </div>
 
-      <div className="relative z-5 my-8 mb-0 flex w-full max-w-[960px] flex-col items-center justify-center gap-2 px-2 pt-2 pb-6 sm:my-12 sm:px-4 sm:pt-4 sm:pb-8 md:my-16 md:px-6 md:pb-10 lg:my-16 lg:w-[960px] lg:px-11 lg:pb-0">
+      {/* Image Carousel Section */}
+      <div
+        className={cn(
+          "relative z-5 mb-0 flex w-full max-w-[960px] flex-col items-center justify-center gap-2 px-2 pt-2 pb-6 sm:px-4 sm:pt-4 sm:pb-8 md:px-6 md:pb-10 lg:w-[960px] lg:px-11 lg:pb-0",
+          SPACING.SECTION
+        )}
+      >
         <div className="flex h-[200px] w-full max-w-[960px] flex-col items-start justify-start overflow-hidden rounded-[6px] bg-white shadow-[0px_0px_0px_0.9056603908538818px_rgba(0,0,0,0.08)] sm:h-[280px] sm:rounded-[8px] md:h-[450px] lg:h-[695.55px] lg:w-[960px] lg:rounded-[9.06px]">
           <div className="flex flex-1 items-start justify-start self-stretch">
             <div className="flex h-full w-full items-center justify-center">
-              <div className="relative h-full w-full overflow-hidden">
-                <div
-                  className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                    activeCard === 0
-                      ? "scale-100 opacity-100 blur-0"
-                      : "scale-95 opacity-0 blur-sm"
-                  }`}
-                >
-                  <Image
-                    alt="Aniversário de 45 anos do Coral Infantil de Setúbal"
-                    className="h-full w-full object-cover"
-                    height={695.55}
-                    src="https://cdn.coralinfantilsetubal.com/157.JPG"
-                    width={960}
-                  />
-                </div>
-
-                <div
-                  className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                    activeCard === 1
-                      ? "scale-100 opacity-100 blur-0"
-                      : "scale-95 opacity-0 blur-sm"
-                  }`}
-                >
-                  <Image
-                    alt="Tuti Encantos"
-                    className="h-full w-full object-cover"
-                    height={695.55}
-                    src="https://cdn.coralinfantilsetubal.com/119.JPG"
-                    width={960}
-                  />
-                </div>
-              </div>
+              <ImageCarousel activeCard={activeCard} />
             </div>
           </div>
         </div>
       </div>
 
+      {/* Feature Cards Section */}
       <div
         className={cn(
           "flex items-start justify-center self-stretch border-[#E0DEDB] border-t border-b",
-          {
-            "bg-gradient-to-t from-[#0D4A85]/50 to-[#F7F5F3]": activeCard === 0,
-            "bg-gradient-to-t from-[#E01582]/50 to-[#F7F5F3]": activeCard === 1,
-          }
+          currentCard.theme.background
         )}
       >
         <div className="relative w-4 self-stretch overflow-hidden sm:w-6 md:w-8 lg:w-12" />
 
         <div className="flex flex-1 flex-col items-stretch justify-center gap-0 bg-[#F7F5F3] px-0 sm:px-2 md:flex-row md:px-0">
-          {/* Feature Cards */}
-          <FeatureCard
-            description="O Coral Infantil de Setúbal foi fundado em 1979, conta com mais de 50 coralistas com idade compreendida entre os 6 e os 16 anos."
-            isActive={activeCard === 0}
-            onClick={() => handleCardClick(0)}
-            progress={activeCard === 0 ? progress : 0}
-            title="Coral Infantil"
-          />
-          <FeatureCard
-            description="O Coro Feminino TuttiEncantus é constituído por ex-coralistas do Coral Infantil de Setúbal."
-            isActive={activeCard === 1}
-            onClick={() => handleCardClick(1)}
-            progress={activeCard === 1 ? progress : 0}
-            title="Tuti Encantos"
-          />
+          {FEATURE_CARDS_DATA.map((card) => (
+            <FeatureCard
+              description={card.description}
+              isActive={activeCard === card.id}
+              key={card.id}
+              onClick={() => handleCardClick(card.id)}
+              progress={activeCard === card.id ? progress : 0}
+              title={card.title}
+            />
+          ))}
         </div>
 
         <div className="relative w-4 self-stretch overflow-hidden sm:w-6 md:w-8 lg:w-12" />
