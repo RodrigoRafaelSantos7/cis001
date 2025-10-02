@@ -18,7 +18,12 @@ const Navigation = () => (
         <div className="flex flex-row items-start justify-start gap-2 pl-3 sm:flex sm:gap-3 sm:pl-4 md:gap-4 md:pl-5 lg:gap-4 lg:pl-5">
           <div className="flex items-center justify-start">
             <div className="flex flex-col justify-center font-medium font-sans text-[rgba(49,45,43,0.80)] text-xs leading-[14px] md:text-[13px]">
-              História
+              Calendário
+            </div>
+          </div>
+          <div className="flex items-center justify-start">
+            <div className="flex flex-col justify-center font-medium font-sans text-[rgba(49,45,43,0.80)] text-xs leading-[14px] md:text-[13px]">
+              Arquivo
             </div>
           </div>
           <div className="flex items-center justify-start">

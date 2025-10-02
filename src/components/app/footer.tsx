@@ -120,13 +120,13 @@ function Footer() {
                 Arquivo
               </div>
               <div className="cursor-pointer font-normal font-sans text-[#49423D] text-sm leading-5 transition-colors hover:text-[#37322F]">
-                História
-              </div>
-              <div className="cursor-pointer font-normal font-sans text-[#49423D] text-sm leading-5 transition-colors hover:text-[#37322F]">
                 Calendário
               </div>
               <div className="cursor-pointer font-normal font-sans text-[#49423D] text-sm leading-5 transition-colors hover:text-[#37322F]">
                 Contactos
+              </div>
+              <div className="cursor-pointer font-normal font-sans text-[#49423D] text-sm leading-5 transition-colors hover:text-[#37322F]">
+                História
               </div>
             </div>
           </div>
