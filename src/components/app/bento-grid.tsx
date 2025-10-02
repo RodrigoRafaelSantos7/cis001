@@ -19,7 +19,7 @@ const BentoGrid = () => {
         </div>
       </div>
 
-      <div className="flex items-start justify-center self-stretch bg-[#0D4A85]/10">
+      <div className="flex items-start justify-center self-stretch bg-[#0D4A85]/20">
         <div className="relative w-4 self-stretch overflow-hidden sm:w-6 md:w-8 lg:w-12">
           <div className="absolute top-[-120px] left-[-40px] flex w-[120px] flex-col items-start justify-start sm:left-[-50px] sm:w-[140px] md:left-[-58px] md:w-[162px]" />
         </div>

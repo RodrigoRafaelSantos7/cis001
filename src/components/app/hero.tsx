@@ -89,11 +89,13 @@ const Hero = () => {
 
       <div className="-translate-x-1/2 pointer-events-none absolute top-[20px] left-1/2 z-0 h-[400px] w-[100vw] max-w-[1400px] transform sm:top-[220px] sm:h-[500px] md:top-[240px] md:h-[600px] lg:top-[260px] lg:h-[700px]">
         <div
-          className="h-full w-full opacity-30 mix-blend-multiply sm:opacity-40 md:opacity-50"
+          className="h-full w-full opacity-50 mix-blend-multiply transition-all duration-500 sm:opacity-60 md:opacity-70"
           style={{
             background:
-              "radial-gradient(ellipse 70% 50% at 50% 40%, rgba(45, 150, 200, 0.4) 0%, rgba(60, 180, 220, 0.3) 20%, rgba(80, 200, 240, 0.2) 40%, transparent 70%)",
-            filter: "blur(60px) saturate(0.9) brightness(1.1)",
+              activeCard === 0
+                ? "radial-gradient(ellipse 70% 50% at 50% 40%, rgba(13, 74, 133, 0.7) 0%, rgba(25, 90, 150, 0.5) 20%, rgba(45, 120, 180, 0.3) 40%, transparent 70%)"
+                : "radial-gradient(ellipse 70% 50% at 50% 40%, rgba(224, 21, 130, 0.7) 0%, rgba(230, 60, 150, 0.5) 20%, rgba(240, 100, 180, 0.3) 40%, transparent 70%)",
+            filter: "blur(60px) saturate(1.2) brightness(1.0)",
           }}
         />
       </div>
@@ -144,8 +146,8 @@ const Hero = () => {
         className={cn(
           "flex items-start justify-center self-stretch border-[#E0DEDB] border-t border-b",
           {
-            "bg-gradient-to-t from-[#0D4A85]/10 to-[#F7F5F3]": activeCard === 0,
-            "bg-gradient-to-t from-[#E01582]/10 to-[#F7F5F3]": activeCard === 1,
+            "bg-gradient-to-t from-[#0D4A85]/50 to-[#F7F5F3]": activeCard === 0,
+            "bg-gradient-to-t from-[#E01582]/50 to-[#F7F5F3]": activeCard === 1,
           }
         )}
       >

@@ -20,7 +20,7 @@ const Sponsors = () => {
         </div>
       </div>
 
-      <div className="flex items-start justify-center self-stretch border-[rgba(55,50,47,0.12)] border-b-0 bg-[#0D4A85]/10">
+      <div className="flex items-start justify-center self-stretch border-[rgba(55,50,47,0.12)] border-b-0 bg-[#0D4A85]/20">
         <div className="relative w-4 self-stretch overflow-hidden sm:w-6 md:w-8 lg:w-12" />
 
         <div className="grid flex-1 grid-cols-2 gap-0 border-[rgba(55,50,47,0.12)] border-r border-l bg-[#F7F5F3]">

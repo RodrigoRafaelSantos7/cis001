@@ -95,7 +95,7 @@ const History = () => {
       </div>
 
       {/* Content Section */}
-      <div className="flex items-center justify-start self-stretch overflow-hidden bg-[#0D4A85]/10 px-4 sm:px-6 md:px-9">
+      <div className="flex items-center justify-start self-stretch overflow-hidden bg-[#0D4A85]/20 px-4 sm:px-6 md:px-9">
         <div className="flex flex-1 flex-col items-center justify-start gap-6 py-8 md:flex-row md:gap-12 md:py-11 lg:gap-16">
           {/* Left Column - Feature Cards */}
           <div className="order-2 flex w-full flex-col items-center justify-center gap-3 md:order-1 md:w-auto md:max-w-[400px]">

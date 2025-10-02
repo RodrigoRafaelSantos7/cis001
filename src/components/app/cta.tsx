@@ -6,7 +6,7 @@ const CTA = () => {
   return (
     <div className="relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden">
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-center gap-6 self-stretch border-[rgba(55,50,47,0.12)] border-t border-b bg-[#0D4A85]/10 px-6 py-12 md:px-24 md:py-12">
+      <div className="relative z-10 flex items-center justify-center gap-6 self-stretch border-[rgba(55,50,47,0.12)] border-t border-b bg-[#0D4A85]/20 px-6 py-12 md:px-24 md:py-12">
         <div className="relative z-20 flex w-full max-w-[586px] flex-col items-center justify-start gap-6 overflow-hidden rounded-lg px-6 py-5 md:py-8">
           <div className="flex flex-col items-start justify-start gap-3 self-stretch">
             <div className="flex flex-col justify-center self-stretch text-center font-sans font-semibold text-3xl text-[#49423D] leading-tight tracking-tight md:text-5xl md:leading-[56px]">
