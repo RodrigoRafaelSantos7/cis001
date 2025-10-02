@@ -114,7 +114,7 @@ const Hero = () => {
                     alt="Aniversário de 45 anos do Coral Infantil de Setúbal"
                     className="h-full w-full object-cover"
                     height={695.55}
-                    src="/cis-anniversary.JPG"
+                    src="https://cdn.coralinfantilsetubal.com/157.JPG"
                     width={960}
                   />
                 </div>
@@ -130,7 +130,7 @@ const Hero = () => {
                     alt="Tuti Encantos"
                     className="h-full w-full object-cover"
                     height={695.55}
-                    src="/tuti-encantos.JPG"
+                    src="https://cdn.coralinfantilsetubal.com/119.JPG"
                     width={960}
                   />
                 </div>
