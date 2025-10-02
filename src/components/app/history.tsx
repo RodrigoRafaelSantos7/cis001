@@ -20,21 +20,21 @@ const History = () => {
       title: "Fundação e primeiros anos",
       description:
         "O Coral Infantil de Setúbal foi fundado em 1979, marcando o início de uma jornada musical única.",
-      image: "/archive/2.jpg",
+      image: "https://cdn.coralinfantilsetubal.com/2.jpg",
       gradient: "from-[#0D4A85]/20 to-[#F7F5F3]",
     },
     {
       title: "Crescimento e reconhecimento",
       description:
         "Ao longo dos anos, o coral conquistou diversos prémios e reconhecimento nacional e internacional.",
-      image: "/archive/100.jpg",
+      image: "https://cdn.coralinfantilsetubal.com/100.JPG",
       gradient: "from-[#E01582]/20 to-[#F7F5F3]",
     },
     {
       title: "45 anos de história",
       description:
         "Celebramos 45 anos de música, formação e amizade, com mais de 50 coralistas ativos.",
-      image: "/archive/157.jpg",
+      image: "https://cdn.coralinfantilsetubal.com/157.JPG",
       gradient: "from-[#0D4A85]/20 to-[#F7F5F3]",
     },
   ];
