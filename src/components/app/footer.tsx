@@ -1,17 +1,32 @@
+import Link from "next/link";
+import {
+  adminPath,
+  archivePath,
+  calendarPath,
+  contactPath,
+  homePath,
+} from "@/paths";
+
 type SocialIcon = {
   name: string;
-  href?: string;
+  href: string;
   icon: React.ReactNode;
+};
+
+type NavigationLink = {
+  label: string;
+  href: string;
 };
 
 type NavigationSection = {
   title: string;
-  links: string[];
+  links: NavigationLink[];
 };
 
 const SOCIAL_ICONS: SocialIcon[] = [
   {
     name: "Instagram",
+    href: "https://www.instagram.com/coralinfantilsetubal/",
     icon: (
       <svg
         height="16"
@@ -30,6 +45,7 @@ const SOCIAL_ICONS: SocialIcon[] = [
   },
   {
     name: "Facebook",
+    href: "https://www.facebook.com/coralinfantil.desetubal/",
     icon: (
       <svg
         fill="url(#facebook-a)"
@@ -61,6 +77,7 @@ const SOCIAL_ICONS: SocialIcon[] = [
   },
   {
     name: "Email",
+    href: "mailto:coralinfantildesetubal@gmail.com",
     icon: (
       <svg
         height="16"
@@ -102,24 +119,38 @@ const SOCIAL_ICONS: SocialIcon[] = [
 const NAVIGATION_SECTIONS: NavigationSection[] = [
   {
     title: "Navegação",
-    links: ["Arquivo", "Calendário", "Contactos", "História"],
+    links: [
+      { label: "Início", href: homePath() },
+      { label: "Administração", href: adminPath() },
+      { label: "Arquivo", href: archivePath() },
+      { label: "Calendário", href: calendarPath() },
+      { label: "Contactos", href: contactPath() },
+    ],
   },
   {
     title: "Recursos",
-    links: ["Política de Privacidade", "Termos de Utilização"],
+    links: [
+      { label: "Política de Privacidade", href: homePath() },
+      { label: "Termos de Utilização", href: homePath() },
+    ],
   },
 ];
 
 const STRIPE_HORIZONTAL_OFFSET = 300;
 const STRIPE_VERTICAL_OFFSET = 120;
 
-function SocialIconLink({ icon }: SocialIcon) {
+function SocialIconLink({ icon, href }: SocialIcon) {
   return (
-    <div className="relative h-6 w-6 overflow-hidden">
+    <a
+      className="relative h-6 w-6 overflow-hidden transition-opacity hover:opacity-70"
+      href={href}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       <div className="absolute top-0 left-0 flex h-6 w-6 items-center justify-center">
         {icon}
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -131,13 +162,13 @@ function FooterNavSection({ title, links }: NavigationSection) {
       </h3>
       <ul className="flex flex-col items-start justify-end gap-2">
         {links.map((link) => (
-          <li key={link}>
-            <button
+          <li key={link.label}>
+            <Link
               className="cursor-pointer text-left font-normal font-sans text-[#49423D] text-sm leading-5 transition-colors hover:text-[#37322F]"
-              type="button"
+              href={link.href}
             >
-              {link}
-            </button>
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>

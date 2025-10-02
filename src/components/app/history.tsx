@@ -2,7 +2,9 @@
 
 import { HistoryIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { archivePath } from "@/paths";
 import { Badge } from "../ui/badge-component";
 
 // Constants
@@ -137,9 +139,9 @@ const ImageCarousel = ({ cards, activeCard }: ImageCarouselProps) => (
 );
 
 const CTAButton = () => (
-  <button className={BUTTON_STYLES.cta} type="button">
+  <Link className={BUTTON_STYLES.cta} href={archivePath()}>
     <div className={BUTTON_STYLES.ctaText}>Ver a história completa</div>
-  </button>
+  </Link>
 );
 
 const History = () => {
