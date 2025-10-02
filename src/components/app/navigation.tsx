@@ -1,11 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  adminPath,
+  archivePath,
+  calendarPath,
+  contactPath,
+  homePath,
+} from "@/paths";
 
 const NAV_ITEMS = [
-  { label: "Administração", href: "/administracao", hideOnMobile: true },
-  { label: "Arquivo", href: "/arquivo", hideOnMobile: false },
-  { label: "Calendário", href: "/calendario", hideOnMobile: false },
-  { label: "Contactos", href: "/contactos", hideOnMobile: false },
+  { label: "Administração", href: adminPath(), hideOnMobile: true },
+  { label: "Arquivo", href: archivePath(), hideOnMobile: false },
+  { label: "Calendário", href: calendarPath(), hideOnMobile: false },
+  { label: "Contactos", href: contactPath(), hideOnMobile: false },
 ] as const;
 
 const NAV_LINK_CLASSES =
@@ -17,7 +24,7 @@ const Navigation = () => (
 
     <div className="relative z-30 flex h-10 w-full max-w-[calc(100%-32px)] items-center justify-between overflow-hidden rounded-[50px] bg-[#F7F5F3] px-3 py-1.5 pr-2 shadow-[0px_0px_0px_2px_white] backdrop-blur-sm sm:h-11 sm:max-w-[calc(100%-48px)] sm:px-4 sm:py-2 sm:pr-3 md:h-12 md:max-w-[calc(100%-64px)] md:px-4 lg:w-[700px] lg:max-w-[700px]">
       <div className="flex w-full items-center justify-between">
-        <Link className="flex items-center" href="/">
+        <Link className="flex items-center" href={homePath()}>
           <Image
             alt="Coral Infantil de Setúbal"
             className="h-10 w-14"
