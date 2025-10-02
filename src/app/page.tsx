@@ -1,5 +1,6 @@
 import { Hero } from "@/components/app/hero";
 import { Navigation } from "@/components/app/navigation";
+import { Sponsors } from "@/components/app/sponsors";
 
 export default function Home() {
   return (
@@ -16,8 +17,9 @@ export default function Home() {
           <div className="relative z-10 flex flex-col items-center justify-center gap-4 self-stretch overflow-hidden border-[rgba(55,50,47,0.06)] border-b pt-[9px] sm:gap-6 md:gap-8 lg:gap-[66px]">
             <Navigation />
 
-            <div className="flex w-full flex-col items-center justify-start px-2 pt-16 pr-0 pb-8 pl-0 sm:px-4 sm:pt-20 sm:pr-0 sm:pb-12 sm:pl-0 md:px-8 md:pt-24 md:pb-16 lg:px-0 lg:pt-[216px]">
+            <div className="flex w-full flex-col items-center justify-start px-2 pt-16 pr-0 pb-8 pl-0 sm:px-4 sm:pt-20 sm:pr-0 sm:pb-12 sm:pl-0 md:px-8 md:pt-24 md:pb-16 lg:px-0 lg:pt-[125px]">
               <Hero />
+              <Sponsors />
             </div>
           </div>
         </div>

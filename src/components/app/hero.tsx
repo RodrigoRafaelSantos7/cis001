@@ -3,6 +3,7 @@
 import { MusicIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 import { FeatureCard } from "../ui/feature-card";
 
 const MAX_PROGRESS = 100;
@@ -57,6 +58,13 @@ const Hero = () => {
     <>
       <div className="flex w-full max-w-[937px] flex-col items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
         <div className="flex flex-col items-center justify-center gap-4 self-stretch rounded-[3px] sm:gap-5 md:gap-6 lg:gap-8">
+          <Image
+            alt="Coral Infantil de Setúbal"
+            className=""
+            height={125}
+            src="/cis-icon.png"
+            width={125}
+          />
           <div className="flex w-full max-w-[748.71px] flex-col justify-center px-2 text-center font-charm font-normal text-[#0D4A85] text-[24px] xs:text-[28px] leading-[1.1] sm:px-4 sm:text-[36px] sm:leading-[1.15] md:px-0 md:text-[52px] md:leading-[1.2] lg:text-[80px] lg:leading-24">
             Coral Infantil de Setúbal
           </div>
@@ -70,7 +78,15 @@ const Hero = () => {
 
       <div className="relative z-10 mt-6 flex w-full max-w-[497px] flex-col items-center justify-center gap-6 sm:mt-8 sm:gap-8 md:mt-10 md:gap-10 lg:mt-12 lg:w-[497px] lg:gap-12">
         <div className="flex items-center justify-start gap-4 backdrop-blur-[8.25px]">
-          <div className="relative flex h-10 items-center justify-center overflow-hidden rounded-full bg-[#0D4A85] px-6 py-2 shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] sm:h-11 sm:px-8 sm:py-[6px] md:h-12 md:px-10 lg:px-12">
+          <div
+            className={cn(
+              "relative flex h-10 items-center justify-center overflow-hidden rounded-full bg-[#0D4A85] px-6 py-2 shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] sm:h-11 sm:px-8 sm:py-[6px] md:h-12 md:px-10 lg:px-12",
+              {
+                "bg-[#0D4A85]": activeCard === 0,
+                "bg-[#E01582]": activeCard === 1,
+              }
+            )}
+          >
             <div className="flex items-center justify-center font-medium font-sans text-sm text-white leading-5 sm:text-base md:text-[15px]">
               Estamos à tua espera
               <MusicIcon className="ml-2 size-5" />
@@ -79,7 +95,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="-translate-x-1/2 pointer-events-none absolute top-[200px] left-1/2 z-0 transform sm:top-[220px] md:top-[240px] lg:top-[280px]">
+      <div className="-translate-x-1/2 pointer-events-none absolute top-[20px] left-1/2 z-0 transform sm:top-[220px] md:top-[240px] lg:top-[260px]">
         <Image
           alt=""
           className="h-auto w-[936px] opacity-30 mix-blend-multiply sm:w-[1404px] sm:opacity-40 md:w-[2106px] md:opacity-50 lg:w-[2808px]"
@@ -87,6 +103,10 @@ const Hero = () => {
           src="/mask-group-pattern.svg"
           style={{
             filter: "hue-rotate(200deg) saturate(0.9) brightness(1.1)",
+            maskImage:
+              "radial-gradient(ellipse 100% 80% at 50% 50%, black 30%, transparent 70%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 100% 80% at 50% 50%, black 30%, transparent 70%)",
           }}
           width={2808}
         />
@@ -134,28 +154,18 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="flex items-start justify-center self-stretch border-[#E0DEDB] border-t border-b">
-        <div className="relative w-4 self-stretch overflow-hidden sm:w-6 md:w-8 lg:w-12">
-          {/* Left decorative pattern */}
-          <div className="-translate-y-1/2 absolute top-1/2 left-[-100px] flex w-[160px] flex-col items-start justify-start sm:left-[-120px] sm:w-[180px] md:left-[-140px] md:w-[220px] lg:left-[-160px] lg:w-[260px]">
-            <Image
-              alt=""
-              className="h-auto w-full opacity-20 mix-blend-multiply sm:opacity-25 md:opacity-30 lg:opacity-35"
-              height={320}
-              src="/mask-group-pattern.svg"
-              style={{
-                filter: "hue-rotate(200deg) saturate(0.9) brightness(1.1)",
-                maskImage:
-                  "linear-gradient(to right, transparent 0%, black 40%, black 60%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(to right, transparent 0%, black 40%, black 60%, transparent 100%)",
-              }}
-              width={2808}
-            />
-          </div>
-        </div>
+      <div
+        className={cn(
+          "flex items-start justify-center self-stretch border-[#E0DEDB] border-t border-b",
+          {
+            "bg-gradient-to-t from-[#0D4A85]/10 to-[#F7F5F3]": activeCard === 0,
+            "bg-gradient-to-t from-[#E01582]/10 to-[#F7F5F3]": activeCard === 1,
+          }
+        )}
+      >
+        <div className="relative w-4 self-stretch overflow-hidden sm:w-6 md:w-8 lg:w-12" />
 
-        <div className="flex flex-1 flex-col items-stretch justify-center gap-0 px-0 sm:px-2 md:flex-row md:px-0">
+        <div className="flex flex-1 flex-col items-stretch justify-center gap-0 bg-[#F7F5F3] px-0 sm:px-2 md:flex-row md:px-0">
           {/* Feature Cards */}
           <FeatureCard
             description="O Coral Infantil de Setúbal foi fundado em 1979, conta com mais de 50 coralistas com idade compreendida entre os 6 e os 16 anos."
@@ -173,25 +183,7 @@ const Hero = () => {
           />
         </div>
 
-        <div className="relative w-4 self-stretch overflow-hidden sm:w-6 md:w-8 lg:w-12">
-          {/* Right decorative pattern */}
-          <div className="-translate-y-1/2 absolute top-1/2 right-[-100px] flex w-[160px] flex-col items-end justify-start sm:right-[-120px] sm:w-[180px] md:right-[-140px] md:w-[220px] lg:right-[-160px] lg:w-[260px]">
-            <Image
-              alt=""
-              className="h-auto w-full opacity-20 mix-blend-multiply sm:opacity-25 md:opacity-30 lg:opacity-35"
-              height={320}
-              src="/mask-group-pattern.svg"
-              style={{
-                filter: "hue-rotate(320deg) saturate(1.2) brightness(1.0)",
-                maskImage:
-                  "linear-gradient(to left, transparent 0%, black 40%, black 60%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(to left, transparent 0%, black 40%, black 60%, transparent 100%)",
-              }}
-              width={2808}
-            />
-          </div>
-        </div>
+        <div className="relative w-4 self-stretch overflow-hidden sm:w-6 md:w-8 lg:w-12" />
       </div>
     </>
   );
