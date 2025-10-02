@@ -1,4 +1,6 @@
 import { BentoGrid } from "@/components/app/bento-grid";
+import { CTA } from "@/components/app/cta";
+import { FAQSection } from "@/components/app/faq-section";
 import { Hero } from "@/components/app/hero";
 import { History } from "@/components/app/history";
 import { Navigation } from "@/components/app/navigation";
@@ -24,6 +26,8 @@ export default function Home() {
               <Sponsors />
               <BentoGrid />
               <History />
+              <FAQSection />
+              <CTA />
             </div>
           </div>
         </div>
