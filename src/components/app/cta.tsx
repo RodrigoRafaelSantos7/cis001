@@ -1,5 +1,7 @@
 "use client";
 
+import { SendIcon } from "lucide-react";
+
 const CTA = () => {
   return (
     <div className="relative flex w-full flex-col items-center justify-center gap-2 overflow-hidden">
@@ -16,11 +18,12 @@ const CTA = () => {
               Entra em contacto connosco. Estamos à tua espera!
             </div>
           </div>
-          <div className="flex w-full max-w-[497px] flex-col items-center justify-center gap-12">
-            <div className="flex items-center justify-start gap-4">
-              <div className="relative flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-[#0D4A85] px-12 py-[6px] shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] transition-colors hover:bg-[#0A3A6B]">
-                <div className="flex flex-col justify-center font-medium font-sans text-[13px] text-white leading-5">
-                  Entra em contacto
+          <div className="relative z-10 flex w-full max-w-[497px] flex-col items-center justify-center gap-6 lg:w-[497px] lg:gap-12">
+            <div className="flex items-center justify-start gap-4 backdrop-blur-[8.25px]">
+              <div className="relative flex h-10 items-center justify-center overflow-hidden rounded-full bg-[#0D4A85] px-6 py-2 shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] sm:h-11 sm:px-8 sm:py-[6px] md:h-12 md:px-10 lg:px-12">
+                <div className="flex items-center justify-center font-medium font-sans text-sm text-white leading-5 sm:text-base md:text-[15px]">
+                  Estamos à tua espera
+                  <SendIcon className="ml-2 size-4" />
                 </div>
               </div>
             </div>
