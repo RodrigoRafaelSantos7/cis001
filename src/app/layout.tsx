@@ -7,6 +7,7 @@ import {
   Instrument_Serif,
   Inter,
 } from "next/font/google";
+import { ConvexClientProvider } from "@/components/app/convex-client-provider";
 
 import "./globals.css";
 
@@ -52,7 +53,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${charm.variable} ${geistMono.variable} ${instrumentSerif.variable} ${inter.variable} antialiased`}
       >
-        {children}
+        <ConvexClientProvider>{children}</ConvexClientProvider>
         <Analytics />
       </body>
     </html>
