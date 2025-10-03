@@ -1,7 +1,10 @@
 "use client";
 
 import { useForm } from "@tanstack/react-form";
+import { useAction, useMutation } from "convex/react";
 import { Loader2, MailIcon, SendIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { z } from "zod";
 import { Footer } from "@/components/app/footer";
 import { Navigation } from "@/components/app/navigation";
@@ -10,6 +13,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { homePath } from "@/paths";
+import { api } from "../../../convex/_generated/api";
 
 const contactSchema = z.object({
   name: z
@@ -24,6 +29,9 @@ const contactSchema = z.object({
 });
 
 const Page = () => {
+  const insert = useMutation(api.formSubmission.insert);
+  const sendEmail = useAction(api.sendEmail.sendFormSubmissionEmail);
+  const router = useRouter();
   const form = useForm({
     defaultValues: {
       name: "",
@@ -31,8 +39,27 @@ const Page = () => {
       message: "",
     },
     onSubmit: ({ value }) => {
-      // biome-ignore lint/suspicious/noConsole: ok
-      console.log(value);
+      toast.promise(
+        Promise.all([
+          insert({
+            name: value.name,
+            email: value.email,
+            message: value.message,
+          }),
+          sendEmail({
+            name: value.name,
+            email: value.email,
+            message: value.message,
+          }),
+        ]),
+        {
+          loading: "A sua mensagem está a ser enviada...",
+          success: "Mensagem enviada com sucesso, em breve responderemos.",
+          error: "Erro ao enviar mensagem",
+        }
+      );
+
+      router.push(homePath());
     },
     validators: {
       onMount: contactSchema,

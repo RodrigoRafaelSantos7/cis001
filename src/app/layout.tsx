@@ -10,6 +10,7 @@ import {
 import { ConvexClientProvider } from "@/components/app/convex-client-provider";
 
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,8 +54,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${charm.variable} ${geistMono.variable} ${instrumentSerif.variable} ${inter.variable} antialiased`}
       >
-        <ConvexClientProvider>{children}</ConvexClientProvider>
-        <Analytics />
+        <ConvexClientProvider>
+          {children}
+          <Analytics />
+          <Toaster richColors />
+        </ConvexClientProvider>
       </body>
     </html>
   );
