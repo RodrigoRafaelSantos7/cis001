@@ -64,8 +64,8 @@ const BentoGrid = () => {
                 Organização
               </h3>
               <p className="font-normal font-sans text-[#605A57] text-sm leading-relaxed md:text-base">
-                Acompanha os estatutos orgãos sociais, e relatórios de
-                atividades e contas.
+                Conhece os nossos Estatutos, Orgãos Sociais e Relatórios de
+                Atividades e Contas.
               </p>
             </div>
             <div className="relative flex h-[200px] w-full items-center justify-center overflow-hidden rounded-lg sm:h-[250px] md:h-[300px]">
@@ -87,7 +87,7 @@ const BentoGrid = () => {
               href={adminPath()}
             >
               <div className="flex items-center justify-center font-medium font-sans text-sm text-white leading-5 sm:text-base md:text-[15px]">
-                Ver informação administrativa
+                Ver informações institucionais
               </div>
             </Link>
           </div>
