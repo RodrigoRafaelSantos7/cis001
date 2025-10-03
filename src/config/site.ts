@@ -42,7 +42,7 @@ export const siteConfig = {
     type: "website",
     images: [
       {
-        url: "https://cdn.coralinfantilsetubal.com/og-image.png",
+        url: "https://cdn.coralinfantilsetubal.com/og-image.webp",
         width: 1200,
         height: 630,
         alt: "Coral Infantil de Setúbal",
@@ -54,7 +54,7 @@ export const siteConfig = {
     title: "Coral Infantil de Setúbal",
     description:
       "Gostas de cantar? Tens entre 6 e 16 anos? Então estás à espera do quê para pertenceres a esta família?",
-    images: ["https://cdn.coralinfantilsetubal.com/og-image.png"],
+    images: ["https://cdn.coralinfantilsetubal.com/og-image.webp"],
     creator: "@RodrigoRafaelSantos7",
   },
   manifest: "https://coralinfantilsetubal.com/site.webmanifest",
