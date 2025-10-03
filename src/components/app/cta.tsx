@@ -1,6 +1,8 @@
 "use client";
 
 import { SendIcon } from "lucide-react";
+import Link from "next/link";
+import { contactPath } from "@/paths";
 
 // Design tokens for consistent styling
 const COLORS = {
@@ -51,16 +53,16 @@ const CTA = () => {
           {/* Call-to-action button */}
           <div className="relative z-10 flex w-full max-w-[497px] flex-col items-center justify-center gap-6 lg:w-[497px] lg:gap-12">
             <div className="flex items-center justify-start gap-4 backdrop-blur-[8.25px]">
-              <button
+              <Link
                 className={`relative flex h-10 items-center justify-center overflow-hidden rounded-full shadow-[0px_0px_0px_2.5px_${COLORS.shadow}_inset] sm:h-11 md:h-12 ${SPACING.button}`}
+                href={contactPath()}
                 style={{ backgroundColor: COLORS.primary }}
-                type="button"
               >
                 <span className="flex items-center justify-center font-medium font-sans text-sm text-white leading-5 sm:text-base md:text-[15px]">
                   Estamos à tua espera
                   <SendIcon className="ml-2 size-4" />
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>
