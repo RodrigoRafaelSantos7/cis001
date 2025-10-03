@@ -97,7 +97,7 @@ const Page = () => {
                   <div className="mt-4 self-stretch text-center font-normal font-sans text-[#605A57] text-sm leading-6 sm:text-base sm:leading-7">
                     Tem alguma questão ou sugestão? Estamos aqui para ajudar.
                     <br className="hidden sm:block" />
-                    Envie-nos uma mensagem e responderemos o mais breve
+                    Envie-nos uma mensagem e responderemos o mais brevemente
                     possível.
                   </div>
                 </div>

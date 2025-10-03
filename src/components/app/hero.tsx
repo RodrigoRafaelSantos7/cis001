@@ -185,9 +185,9 @@ const Hero = () => {
             Coral Infantil de Setúbal
           </div>
           <div className="flex w-full max-w-[520.08px] flex-col justify-center px-2 text-center font-medium font-sans text-[rgba(55,50,47,0.80)] text-sm leading-[1.4] sm:px-4 sm:text-lg sm:leading-[1.45] md:px-0 md:text-xl md:leading-[1.5] lg:text-lg lg:leading-7">
-            Gostas de cantar? Tens entre 6 e 16 anos?
+            Gostas de cantar? Tens entre 6 e 14 anos?
             <br className="block" />
-            Então estás à espera do quê para pertenceres a esta família?
+            Então do que estás à espera para te juntares a nós?
           </div>
         </div>
       </div>
