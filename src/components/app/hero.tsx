@@ -42,7 +42,7 @@ const FEATURE_CARDS_DATA = [
     id: 0,
     title: "Coral Infantil",
     description:
-      "O Coral Infantil de Setúbal foi fundado em 1979, conta com mais de 50 coralistas com idade compreendida entre os 6 e os 16 anos.",
+      "O Coral Infantil de Setúbal foi fundado em 1979, conta com coralistas com idade compreendida entre os 6 e os 14 anos.",
     image: {
       src: "https://cdn.coralinfantilsetubal.com/157.JPG",
       alt: "Aniversário de 45 anos do Coral Infantil de Setúbal",
