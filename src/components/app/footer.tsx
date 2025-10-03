@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { urls } from "@/config/urls";
 import {
   adminPath,
   archivePath,
@@ -26,7 +27,7 @@ type NavigationSection = {
 const SOCIAL_ICONS: SocialIcon[] = [
   {
     name: "Instagram",
-    href: "https://www.instagram.com/coralinfantilsetubal/",
+    href: urls.instagram,
     icon: (
       <svg
         height="16"
@@ -45,7 +46,7 @@ const SOCIAL_ICONS: SocialIcon[] = [
   },
   {
     name: "Facebook",
-    href: "https://www.facebook.com/coralinfantil.desetubal/",
+    href: urls.facebook,
     icon: (
       <svg
         fill="url(#facebook-a)"
@@ -77,7 +78,7 @@ const SOCIAL_ICONS: SocialIcon[] = [
   },
   {
     name: "Email",
-    href: "mailto:coralinfantildesetubal@gmail.com",
+    href: `mailto:${urls.email}`,
     icon: (
       <svg
         height="16"

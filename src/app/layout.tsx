@@ -11,6 +11,7 @@ import { ConvexClientProvider } from "@/components/app/convex-client-provider";
 
 import "./globals.css";
 import { Toaster } from "sonner";
+import { siteConfig } from "@/config/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,8 +41,23 @@ const charm = Charm({
 });
 
 export const metadata: Metadata = {
-  title: "Coral Infantil de Setúbal",
-  description: "Coral Infantil de Setúbal",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: siteConfig.template,
+  },
+  applicationName: siteConfig.applicationName,
+  generator: siteConfig.generator,
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: siteConfig.authors,
+  creator: siteConfig.authors[0]?.url,
+  alternates: siteConfig.alternates,
+  icons: siteConfig.icons,
+  openGraph: siteConfig.openGraph,
+  twitter: siteConfig.twitter,
+  manifest: siteConfig.manifest,
+  robots: siteConfig.robots,
 };
 
 export default function RootLayout({
