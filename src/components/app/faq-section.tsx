@@ -10,34 +10,33 @@ type FAQItem = {
 
 const faqData: FAQItem[] = [
   {
-    question: "Que idade é necessária para entrar no Coral?",
-    answer:
-      "O Coral Infantil de Setúbal aceita crianças e jovens entre os 6 e os 16 anos. Não é necessário ter experiência prévia em canto, apenas vontade de aprender e fazer parte desta família musical.",
+    question: "Com que idade se pode entrar no Coral",
+    answer: "Entre os 6 e os 14 anos.",
   },
   {
     question: "Quando são os ensaios?",
     answer:
-      "Os ensaios decorrem regularmente durante a semana. Para informações específicas sobre horários e localização, por favor entra em contacto connosco através do formulário de contacto.",
+      "Os ensaios decorrem semanalmente às 4ª feira e 6ª feira das 19h00 às 20h15. Para informações específicas sobre horários e localização, por favor entra em contacto connosco através do formulário de contacto.",
   },
   {
-    question: "É necessário saber ler música?",
+    question: "É preciso saber música?",
     answer:
-      "Não! Não é necessário ter conhecimentos prévios de música. Ao longo do tempo, os coralistas aprendem a ler partituras e desenvolvem as suas capacidades musicais com o apoio dos nossos maestros.",
+      "Não! Não é necessário ter conhecimentos prévio de música. Ao longo do tempo os coralistas vão desenvolvendo as suas capacidades musicais.",
   },
   {
-    question: "Há algum custo para participar?",
+    question: "Quais são os custos?",
     answer:
-      "Para informações sobre mensalidades e custos associados à participação no coral, por favor contacta-nos. Teremos todo o gosto em esclarecer todas as dúvidas relacionadas com inscrições.",
+      "Cada coralista e o seu Encarregado de Educação têm de se tornar sócios do Coral Infantil de Setúbal, pagando uma quota mensal de valor simbólico. Entre setembro e julho os coralistas pagam uma mensalidade. Contacte-nos para informações mais detalhadas.",
   },
   {
-    question: "O que é o TuttiEncantus?",
+    question: "O que é o Coro Feminino TuttiEncantus ?",
     answer:
-      "O TuttiEncantus é o coro feminino formado por ex-coralistas do Coral Infantil de Setúbal. É uma forma de manter a ligação à música e ao coral mesmo depois de completar os 16 anos.",
+      "É um coro formado por ex-coralistas do Coral Infantil de Setúbal. É uma forma de manter a ligação à música e ao coral, mesmo depois de completar os 16 anos.",
   },
   {
     question: "Como posso inscrever o meu filho?",
     answer:
-      "Para inscrever o teu filho no Coral Infantil de Setúbal, entra em contacto connosco através do formulário de contacto. A nossa equipa terá todo o gosto em explicar o processo de inscrição e responder a todas as tuas questões.",
+      "Para inscrever o seu filho, entre em contacto connosco através do formulário de contacto. Teremos todo o gosto em explicar o processo de inscrição e responder às suas questões.",
   },
 ];
 
@@ -59,9 +58,9 @@ const FAQSection = () => {
             Perguntas Frequentes
           </div>
           <div className="w-full font-normal font-sans text-[#605A57] text-base leading-7">
-            Tens dúvidas sobre o Coral?
+            Tem dúvidas sobre o Coral?
             <br className="hidden md:block" />
-            Aqui encontras as respostas mais comuns.
+            Aqui encontra as respostas mais comuns.
           </div>
         </div>
 
