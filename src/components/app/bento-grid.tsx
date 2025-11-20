@@ -13,7 +13,7 @@ const BentoGrid = () => {
             sempre presente
           </div>
           <div className="self-stretch text-center font-normal font-sans text-[#605A57] text-sm leading-6 sm:text-base sm:leading-7">
-            Acede ao calendário de ensaios e eventos, consulta informações
+            Acede ao calendário de concertos e eventos, consulta informações
             <br />
             administrativas e mantém-te sempre atualizado.
           </div>
@@ -33,8 +33,8 @@ const BentoGrid = () => {
                 Sempre em sintonia
               </h3>
               <p className="font-normal font-sans text-[#605A57] text-sm leading-relaxed md:text-base">
-                Consulta os nossos ensaios, concertos e eventos. Nunca percas um
-                momento especial do coral.
+                Consulta os nossos ensaios, concertos e eventos. <br />
+                &nbsp;
               </p>
             </div>
             <div className="flex h-[200px] w-full items-center justify-center overflow-hidden rounded-lg sm:h-[250px] md:h-[300px]">
