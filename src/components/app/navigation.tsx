@@ -9,9 +9,9 @@ import {
 } from "@/paths";
 
 const NAV_ITEMS = [
-  { label: "Administração", href: adminPath(), hideOnMobile: true },
-  { label: "Arquivo", href: archivePath(), hideOnMobile: false },
   { label: "Calendário", href: calendarPath(), hideOnMobile: false },
+  { label: "Arquivo", href: archivePath(), hideOnMobile: false },
+  { label: "Administração", href: adminPath(), hideOnMobile: true },
   { label: "Contactos", href: contactPath(), hideOnMobile: false },
 ] as const;
 
