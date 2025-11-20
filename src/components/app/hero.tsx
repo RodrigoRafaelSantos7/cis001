@@ -44,7 +44,7 @@ const FEATURE_CARDS_DATA = [
     description:
       "O Coral Infantil de Setúbal foi fundado em 1979, conta com coralistas com idade compreendida entre os 6 e os 14 anos.",
     image: {
-      src: "https://cdn.coralinfantilsetubal.com/157.JPG",
+      src: "/infantil.jpg",
       alt: "Aniversário de 45 anos do Coral Infantil de Setúbal",
     },
     theme: CARD_THEMES.primary,
@@ -55,7 +55,7 @@ const FEATURE_CARDS_DATA = [
     description:
       "O Coro Feminino TuttiEncantus é constituído por ex-coralistas do Coral Infantil de Setúbal.",
     image: {
-      src: "https://cdn.coralinfantilsetubal.com/119.JPG",
+      src: "/tutti.jpg",
       alt: "Tuti Encantos",
     },
     theme: CARD_THEMES.secondary,
@@ -77,9 +77,9 @@ const HeroImage = ({
   <Image
     alt={alt}
     className={cn("h-full w-full object-cover", className)}
-    height={695.55}
+    height={1200}
     src={src}
-    width={960}
+    width={1200}
   />
 );
 
