@@ -1,7 +1,6 @@
 "use client";
 
 import { HistoryIcon } from "lucide-react";
-import Image from "next/image";
 import { Footer } from "@/components/app/footer";
 import { Navigation } from "@/components/app/navigation";
 import { Badge } from "@/components/ui/badge-component";
@@ -1304,11 +1303,13 @@ const TimelineSection = ({ period }: { period: TimelinePeriod }) => (
             key={`${period.years}-content-${idx}`}
           >
             <div className="relative h-[350px] w-full overflow-hidden rounded-lg shadow-[0px_0px_0px_0.9056603908538818px_rgba(0,0,0,0.08)] sm:h-[400px]">
-              <Image
+              {/** biome-ignore lint/performance/noImgElement: I want to use img because of Image vercel */}
+              <img
                 alt={item.caption || `Imagem ${idx}`}
                 className="h-full w-full object-contain"
-                fill
+                height={420}
                 src={item.url}
+                width={580}
               />
             </div>
             {item.caption && (
