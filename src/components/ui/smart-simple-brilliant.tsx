@@ -87,55 +87,11 @@ const SmartSimpleBrilliant: React.FC<SmartSimpleBrilliantProps> = ({
                   "0px 0px 0px 1px rgba(0,0,0,0.08), 0px 2px 4px rgba(0,0,0,0.07)",
               }}
             >
-              {/* Ensaio */}
-              <div
-                style={{
-                  width: "100%",
-                  height: "51px",
-                  borderRadius: "4px",
-                  overflow: "hidden",
-                  background: "rgba(13,74,133,0.1)",
-                  display: "flex",
-                }}
-              >
-                <div style={{ width: "2.25px", background: "#0D4A85" }} />
-                <div style={{ padding: "4.5px", width: "100%" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "3px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        fontWeight: 500,
-                        fontSize: "9px",
-                        color: "#0D4A85",
-                      }}
-                    >
-                      18:00
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontWeight: 600,
-                      fontSize: "9px",
-                      color: "#0D4A85",
-                    }}
-                  >
-                    Ensaio
-                  </div>
-                </div>
-              </div>
-
               {/* Encontro de coros */}
               <div
                 style={{
                   width: "100%",
-                  height: "79.5px",
+                  height: "200px",
                   borderRadius: "4px",
                   overflow: "hidden",
                   background: "rgba(224,21,130,0.1)",
@@ -160,7 +116,7 @@ const SmartSimpleBrilliant: React.FC<SmartSimpleBrilliantProps> = ({
                         color: "#9D0E5C",
                       }}
                     >
-                      15:00
+                      19:00
                     </span>
                   </div>
                   <div
@@ -172,51 +128,6 @@ const SmartSimpleBrilliant: React.FC<SmartSimpleBrilliantProps> = ({
                     }}
                   >
                     Encontro de coros
-                  </div>
-                </div>
-              </div>
-
-              {/* Ensaio extra */}
-              <div
-                style={{
-                  width: "100%",
-                  height: "51px",
-                  borderRadius: "4px",
-                  overflow: "hidden",
-                  background: "rgba(13,74,133,0.1)",
-                  marginTop: "3px",
-                  display: "flex",
-                }}
-              >
-                <div style={{ width: "2.25px", background: "#0D4A85" }} />
-                <div style={{ padding: "4.5px", width: "100%" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "3px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        fontWeight: 500,
-                        fontSize: "9px",
-                        color: "#0D4A85",
-                      }}
-                    >
-                      10:00
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontWeight: 600,
-                      fontSize: "9px",
-                      color: "#0D4A85",
-                    }}
-                  >
-                    Ensaio - Sábado
                   </div>
                 </div>
               </div>
@@ -246,55 +157,11 @@ const SmartSimpleBrilliant: React.FC<SmartSimpleBrilliantProps> = ({
                   "-8px 6px 11.3px rgba(0,0,0,0.12), 0px 0px 0px 1px rgba(0,0,0,0.08), 0px 2px 4px rgba(0,0,0,0.06)",
               }}
             >
-              {/* Concerto */}
-              <div
-                style={{
-                  width: "100%",
-                  height: "51px",
-                  borderRadius: "4px",
-                  overflow: "hidden",
-                  background: "rgba(224,21,130,0.1)",
-                  display: "flex",
-                }}
-              >
-                <div style={{ width: "2.25px", background: "#E01582" }} />
-                <div style={{ padding: "4.5px", width: "100%" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "3px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        fontWeight: 500,
-                        fontSize: "9px",
-                        color: "#9D0E5C",
-                      }}
-                    >
-                      20:00
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontWeight: 600,
-                      fontSize: "9px",
-                      color: "#9D0E5C",
-                    }}
-                  >
-                    Ensaio
-                  </div>
-                </div>
-              </div>
-
               {/* Aniversário */}
               <div
                 style={{
                   width: "100%",
-                  height: "51px",
+                  height: "200px",
                   borderRadius: "4px",
                   overflow: "hidden",
                   background: "rgba(13,74,133,0.1)",
@@ -319,7 +186,7 @@ const SmartSimpleBrilliant: React.FC<SmartSimpleBrilliantProps> = ({
                         color: "#0D4A85",
                       }}
                     >
-                      16:00
+                      29/11 - 21:00
                     </span>
                   </div>
                   <div
@@ -331,51 +198,6 @@ const SmartSimpleBrilliant: React.FC<SmartSimpleBrilliantProps> = ({
                     }}
                   >
                     🎂 Aniversário CIS
-                  </div>
-                </div>
-              </div>
-
-              {/* Ensaio especial */}
-              <div
-                style={{
-                  width: "100%",
-                  height: "79.5px",
-                  borderRadius: "4px",
-                  overflow: "hidden",
-                  background: "rgba(224,21,130,0.1)",
-                  display: "flex",
-                  marginTop: "3px",
-                }}
-              >
-                <div style={{ width: "2.25px", background: "#E01582" }} />
-                <div style={{ padding: "4.5px", width: "100%" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "3px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        fontWeight: 500,
-                        fontSize: "9px",
-                        color: "#9D0E5C",
-                      }}
-                    >
-                      14:00
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "Inter, sans-serif",
-                      fontWeight: 600,
-                      fontSize: "9px",
-                      color: "#9D0E5C",
-                    }}
-                  >
-                    🎵 Ensaio extraordinário
                   </div>
                 </div>
               </div>
