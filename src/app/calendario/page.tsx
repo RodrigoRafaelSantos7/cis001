@@ -2,279 +2,131 @@
 "use client";
 
 import { CalendarIcon, ClockIcon, MapPinIcon } from "lucide-react";
+import Image from "next/image";
 import { Footer } from "@/components/app/footer";
 import { Navigation } from "@/components/app/navigation";
 import { Badge } from "@/components/ui/badge-component";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 
-// Define status colors for different event types
-const STATUS = {
-  ENSAIO: {
-    id: "ensaio",
-    name: "Ensaio",
-    color: "#0D4A85", // Blue - main brand color
-  },
-  CONCERTO: {
-    id: "concerto",
-    name: "Concerto",
-    color: "#DC2626", // Red - important events
-  },
-};
-
-type CalendarEvent = {
+type FeaturedEvent = {
   id: string;
   name: string;
   date: Date;
   time: string;
   location: string;
-  type: typeof STATUS.ENSAIO | typeof STATUS.CONCERTO;
+  price: string;
+  imageAlt: string;
+  imageSrc: string;
 };
 
-// Sample events for the calendar
-const CALENDAR_EVENTS: CalendarEvent[] = [
-  // October 2025
+const FEATURED_EVENTS: FeaturedEvent[] = [
   {
-    id: "1",
-    name: "Ensaio Semanal",
-    date: new Date(2025, 9, 3),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "2",
-    name: "Ensaio Semanal",
-    date: new Date(2025, 9, 10),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "3",
-    name: "Ensaio Semanal",
-    date: new Date(2025, 9, 17),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "4",
-    name: "Concerto de Outono",
-    date: new Date(2025, 9, 25),
-    time: "19:00 - 21:00",
+    id: "anniversary",
+    name: "46º Aniversário do Coral infantil de Setúbal",
+    date: new Date(2025, 10, 29),
+    time: "21h00",
     location: "Fórum Municipal Luísa Todi",
-    type: STATUS.CONCERTO,
-  },
-  {
-    id: "5",
-    name: "Ensaio Semanal",
-    date: new Date(2025, 9, 31),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-
-  // November 2025
-  {
-    id: "6",
-    name: "Ensaio Semanal",
-    date: new Date(2025, 10, 7),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "7",
-    name: "Ensaio Semanal",
-    date: new Date(2025, 10, 14),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "8",
-    name: "Ensaio Semanal",
-    date: new Date(2025, 10, 21),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "9",
-    name: "Concerto de Aniversário",
-    date: new Date(2025, 10, 23),
-    time: "19:00 - 21:00",
-    location: "Fórum Municipal Luísa Todi",
-    type: STATUS.CONCERTO,
-  },
-  {
-    id: "10",
-    name: "Ensaio Semanal",
-    date: new Date(2025, 10, 28),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-
-  // December 2025
-  {
-    id: "11",
-    name: "Ensaio Semanal",
-    date: new Date(2025, 11, 5),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "12",
-    name: "Ensaio Semanal",
-    date: new Date(2025, 11, 12),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "13",
-    name: "Ensaio de Natal",
-    date: new Date(2025, 11, 19),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "14",
-    name: "Concerto de Natal",
-    date: new Date(2025, 11, 20),
-    time: "19:00 - 21:00",
-    location: "Fórum Municipal Luísa Todi",
-    type: STATUS.CONCERTO,
-  },
-
-  // January 2026
-  {
-    id: "15",
-    name: "Ensaio Semanal",
-    date: new Date(2026, 0, 9),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "16",
-    name: "Concerto de Ano Novo",
-    date: new Date(2026, 0, 11),
-    time: "19:00 - 21:00",
-    location: "Fórum Municipal Luísa Todi",
-    type: STATUS.CONCERTO,
-  },
-  {
-    id: "17",
-    name: "Ensaio Semanal",
-    date: new Date(2026, 0, 16),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "18",
-    name: "Ensaio Semanal",
-    date: new Date(2026, 0, 23),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "19",
-    name: "Ensaio Semanal",
-    date: new Date(2026, 0, 30),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-
-  // February 2026
-  {
-    id: "20",
-    name: "Ensaio Semanal",
-    date: new Date(2026, 1, 6),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "21",
-    name: "Ensaio Semanal",
-    date: new Date(2026, 1, 13),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "22",
-    name: "Concerto de São Valentim",
-    date: new Date(2026, 1, 14),
-    time: "19:00 - 21:00",
-    location: "Fórum Municipal Luísa Todi",
-    type: STATUS.CONCERTO,
-  },
-  {
-    id: "23",
-    name: "Ensaio Semanal",
-    date: new Date(2026, 1, 20),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "24",
-    name: "Ensaio Semanal",
-    date: new Date(2026, 1, 27),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-
-  // March 2026
-  {
-    id: "25",
-    name: "Ensaio Semanal",
-    date: new Date(2026, 2, 6),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "26",
-    name: "Ensaio Semanal",
-    date: new Date(2026, 2, 13),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
-  },
-  {
-    id: "27",
-    name: "Concerto da Primavera",
-    date: new Date(2026, 2, 21),
-    time: "19:00 - 21:00",
-    location: "Fórum Municipal Luísa Todi",
-    type: STATUS.CONCERTO,
-  },
-  {
-    id: "28",
-    name: "Ensaio Semanal",
-    date: new Date(2026, 2, 27),
-    time: "18:30 - 20:00",
-    location: "Sede do Coral Infantil de Setúbal",
-    type: STATUS.ENSAIO,
+    price: "Bilhetes: 7,50€",
+    imageAlt: "Coral infantil a atuar em palco",
+    imageSrc: "/cartaz-46-aniv.jpg",
   },
 ];
+
+const groupEventsByMonth = () => {
+  const buckets = new Map<number, FeaturedEvent[]>();
+  for (const event of FEATURED_EVENTS) {
+    const key = event.date.getFullYear() * 100 + event.date.getMonth();
+    const existing = buckets.get(key);
+    if (existing) {
+      existing.push(event);
+      continue;
+    }
+    buckets.set(key, [event]);
+  }
+  return Array.from(buckets.entries())
+    .sort((a, b) => a[0] - b[0])
+    .map(([key, events]) => {
+      const year = Math.floor(key / 100);
+      const monthIndex = key - year * 100;
+      const label = new Date(year, monthIndex, 1).toLocaleDateString("pt-PT", {
+        month: "long",
+        year: "numeric",
+      });
+      return { label, events };
+    });
+};
+
+const formatDateBadge = (date: Date) => ({
+  day: date.toLocaleDateString("pt-PT", { day: "2-digit" }),
+  month: date.toLocaleDateString("pt-PT", { month: "short" }).toUpperCase(),
+  year: date.getFullYear(),
+});
+
+const EventCard = ({ event }: { event: FeaturedEvent }) => {
+  const badge = formatDateBadge(event.date);
+  return (
+    <div className="relative flex w-full flex-col gap-6 rounded-[32px] border border-[rgba(55,50,47,0.12)] bg-white p-6 shadow-[0px_24px_70px_rgba(10,10,10,0.05)] sm:flex-row sm:p-10">
+      <div className="relative w-full overflow-hidden rounded-3xl bg-[#E1ECF7] sm:w-[320px]">
+        <Image
+          alt={event.imageAlt}
+          className="h-full w-full object-fit"
+          height={480}
+          priority
+          src={event.imageSrc}
+          width={640}
+        />
+        <div className="absolute top-5 left-5 flex flex-row items-center gap-3 rounded-2xl bg-white/95 px-3 py-4 text-[#0D4A85] shadow-lg">
+          <div className="flex flex-col items-center">
+            <span className="font-semibold text-2xl">{badge.day}</span>
+            <span className="font-semibold text-xs tracking-[0.2em]">
+              {badge.month}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-1 flex-col gap-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div className="flex flex-col gap-3">
+            <h3 className="font-sans font-semibold text-2xl text-[#241C17] sm:text-[28px]">
+              {event.name}
+            </h3>
+          </div>
+          <span className="inline-flex shrink-0 rounded-full bg-[#DDEBFF] px-5 py-2 font-sans font-semibold text-[#0D4A85] text-sm">
+            {event.price}
+          </span>
+        </div>
+        <div className="grid gap-4 text-[#4E4743] text-sm sm:grid-cols-2">
+          <div className="flex items-center gap-2">
+            <CalendarIcon className="size-4 text-[#3B6AA0]" />
+            <span className="font-medium">
+              {event.date.toLocaleDateString("pt-PT", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+              })}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <ClockIcon className="size-4 text-[#3B6AA0]" />
+            <span className="font-medium">{event.time}</span>
+          </div>
+          <div className="flex items-center gap-2 sm:col-span-2">
+            <MapPinIcon className="size-4 text-[#3B6AA0]" />
+            <span className="font-medium">{event.location}</span>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="h-[1px] w-full bg-[rgba(55,50,47,0.1)] sm:hidden" />
+          <button
+            className="inline-flex items-center justify-center rounded-full border border-transparent bg-[#0D4A85] px-6 py-3 font-sans font-semibold text-sm text-white uppercase tracking-[0.2em] transition hover:bg-[#09315F]"
+            type="button"
+          >
+            Saber mais
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Page = () => (
   <div className="relative flex min-h-screen w-full flex-col items-center justify-start overflow-x-hidden bg-[#F7F5F3]">
@@ -310,101 +162,22 @@ const Page = () => (
               </div>
             </div>
 
-            {/* Events Table Section */}
-            <div className="flex w-full flex-col items-start justify-start gap-6 border-[rgba(55,50,47,0.12)] border-b px-4 py-12 sm:px-6 md:px-12">
-              <Table>
-                <TableHeader className="bg-[#F7F5F3]">
-                  <TableRow className="hover:bg-[#F7F5F3]">
-                    <TableHead className="font-sans font-semibold text-[#49423D] text-sm">
-                      Data
-                    </TableHead>
-                    <TableHead className="font-sans font-semibold text-[#49423D] text-sm">
-                      Evento
-                    </TableHead>
-                    <TableHead className="hidden font-sans font-semibold text-[#49423D] text-sm md:table-cell">
-                      Hora
-                    </TableHead>
-                    <TableHead className="hidden font-sans font-semibold text-[#49423D] text-sm lg:table-cell">
-                      Local
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {CALENDAR_EVENTS.map((event) => (
-                    <TableRow key={event.id}>
-                      {/* Date */}
-                      <TableCell className="py-4">
-                        <div className="flex flex-col gap-1">
-                          <div className="font-medium font-sans text-[#49423D] text-sm">
-                            {event.date.toLocaleDateString("pt-PT", {
-                              day: "numeric",
-                              month: "short",
-                            })}
-                          </div>
-                          <div className="font-normal font-sans text-[#605A57] text-xs">
-                            {event.date.toLocaleDateString("pt-PT", {
-                              weekday: "short",
-                            })}
-                          </div>
-                        </div>
-                      </TableCell>
-
-                      {/* Event Name and Type */}
-                      <TableCell className="py-4">
-                        <div className="flex flex-col gap-2">
-                          <div className="font-medium font-sans text-[#49423D] text-sm">
-                            {event.name}
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <div
-                              className="h-2 w-2 shrink-0 rounded-full"
-                              style={{ backgroundColor: event.type.color }}
-                            />
-                            <span className="font-normal font-sans text-[#605A57] text-xs">
-                              {event.type.name}
-                            </span>
-                          </div>
-                          {/* Mobile: Show time and location */}
-                          <div className="flex flex-col gap-1 text-[#605A57] text-xs md:hidden">
-                            <div className="flex items-center gap-1.5">
-                              <ClockIcon className="size-3" />
-                              <span className="font-normal font-sans">
-                                {event.time}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                              <MapPinIcon className="size-3" />
-                              <span className="font-normal font-sans">
-                                {event.location}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </TableCell>
-
-                      {/* Time - Hidden on mobile */}
-                      <TableCell className="hidden py-4 md:table-cell">
-                        <div className="flex items-center gap-1.5">
-                          <ClockIcon className="size-4 text-[#605A57]" />
-                          <span className="font-normal font-sans text-[#605A57] text-sm">
-                            {event.time}
-                          </span>
-                        </div>
-                      </TableCell>
-
-                      {/* Location - Hidden on mobile and tablet */}
-                      <TableCell className="hidden py-4 lg:table-cell">
-                        <div className="flex items-center gap-1.5">
-                          <MapPinIcon className="size-4 text-[#605A57]" />
-                          <span className="font-normal font-sans text-[#605A57] text-sm">
-                            {event.location}
-                          </span>
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+            {/* Featured events list */}
+            <div className="flex w-full flex-col gap-14 border-[rgba(55,50,47,0.12)] border-b px-4 py-12 sm:px-6 md:px-12">
+              {groupEventsByMonth().map(({ label, events }) => (
+                <section className="flex flex-col gap-8" key={label}>
+                  <div className="flex w-full items-center gap-6 font-semibold text-[#7A94B8] text-xs uppercase tracking-[0.4em]">
+                    <span className="h-[1px] flex-1 bg-[rgba(55,50,47,0.12)]" />
+                    <span>{label}</span>
+                    <span className="h-[1px] flex-1 bg-[rgba(55,50,47,0.12)]" />
+                  </div>
+                  <div className="flex flex-col gap-8">
+                    {events.map((event) => (
+                      <EventCard event={event} key={event.id} />
+                    ))}
+                  </div>
+                </section>
+              ))}
             </div>
           </div>
 
