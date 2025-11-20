@@ -33,7 +33,7 @@ const BentoGrid = () => {
                 Sempre em sintonia
               </h3>
               <p className="font-normal font-sans text-[#605A57] text-sm leading-relaxed md:text-base">
-                Consulta os nossos ensaios, concertos e eventos. <br />
+                Consulte os nossos concertos e eventos. <br />
                 &nbsp;
               </p>
             </div>

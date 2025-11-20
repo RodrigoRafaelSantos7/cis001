@@ -303,7 +303,7 @@ const Page = () => (
                 </div>
 
                 <div className="mt-4 self-stretch text-center font-normal font-sans text-[#605A57] text-sm leading-6 sm:text-base sm:leading-7">
-                  Consulte os próximos ensaios, concertos e eventos
+                  Consulte os próximos concertos e eventos
                   <br className="hidden sm:block" />
                   do Coral Infantil de Setúbal.
                 </div>
