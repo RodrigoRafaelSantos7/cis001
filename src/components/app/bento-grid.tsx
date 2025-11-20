@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { adminPath, calendarPath } from "../../paths";
-import NumbersThatSpeak from "../ui/numbers-that-speak";
 import SmartSimpleBrilliant from "../ui/smart-simple-brilliant";
 
 const BentoGrid = () => {
@@ -64,18 +63,52 @@ const BentoGrid = () => {
                 Organização
               </h3>
               <p className="font-normal font-sans text-[#605A57] text-sm leading-relaxed md:text-base">
-                Conhece os nossos Estatutos, Orgãos Sociais e Relatórios de
+                Conheça os nossos Estatutos, Orgãos Sociais e Relatórios de
                 Atividades e Contas.
               </p>
             </div>
             <div className="relative flex h-[200px] w-full items-center justify-center overflow-hidden rounded-lg sm:h-[250px] md:h-[300px]">
-              <div className="absolute inset-0 mb-10 flex items-center justify-center">
-                <NumbersThatSpeak
-                  className="scale-50 sm:scale-65 md:scale-75 lg:scale-90"
-                  height="100%"
-                  theme="light"
-                  width="100%"
-                />
+              <div className="absolute inset-0 flex flex-col justify-between gap-3 px-4 py-4 sm:gap-4 sm:px-6 sm:py-6">
+                <div className="rounded-2xl border border-white/60 bg-gradient-to-br from-white via-white to-[#F1EDE7] p-4 shadow-[0_20px_60px_rgba(13,74,133,0.08)]">
+                  <div className="flex items-center justify-between font-semibold text-[#0D4A85] text-[11px] uppercase tracking-[0.12em]">
+                    <span className="rounded-full bg-[#0D4A85]/10 px-3 py-1 font-semibold text-[#0D4A85] text-[11px]">
+                      Documentos
+                    </span>
+                  </div>
+                  <p className="mt-3 text-[#5F5A56] text-xs sm:text-sm">
+                    Aceda aos principais documentos institucionais.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-[#E2DED9] bg-white/95 p-4 shadow-sm">
+                  <p className="font-sans font-semibold text-[#0D4A85] text-xs uppercase tracking-[0.16em] sm:text-sm">
+                    Principais documentos
+                  </p>
+                  <ul className="mt-4 space-y-4 text-[#37322F] text-sm sm:text-base">
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-[#0D4A85]" />
+                      <div>
+                        <p className="font-semibold leading-tight">Estatutos</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-[#0D4A85]" />
+                      <div>
+                        <p className="font-semibold leading-tight">
+                          Orgãos Sociais
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-[#0D4A85]" />
+                      <div>
+                        <p className="font-semibold leading-tight">
+                          Relatórios de Atividades e Contas
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               {/* Gradient mask for soft bottom edge */}
