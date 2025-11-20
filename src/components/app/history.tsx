@@ -31,7 +31,7 @@ const CARD_DATA = [
   {
     title: "45 anos de história",
     description:
-      "Celebramos 45 anos de música, formação e amizade, com mais de 50 coralistas ativos.",
+      "Celebramos 45 anos de música, formação e amizade, com mais de 50 coralistas.",
     image: "https://cdn.coralinfantilsetubal.com/157.JPG",
   },
 ] as const;
@@ -194,7 +194,7 @@ const History = () => {
             mais de 45 anos
           </div>
           <div className="self-stretch text-center font-normal font-sans text-[#605A57] text-sm leading-6 sm:text-base sm:leading-7">
-            Descobre a trajetória do Coral Infantil de Setúbal,
+            Descubra a trajetória do Coral Infantil de Setúbal,
             <br />
             desde a fundação até aos dias de hoje.
           </div>
